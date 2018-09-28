@@ -1,45 +1,266 @@
 
+@font-face {
+  font-family: 'Gotham-Black';
+  src: url('../fonts/Gotham/Gotham-Black.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-Light';
+  src: url('../fonts/Gotham/Gotham-Light.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-Medium';
+  src: url('../fonts/Gotham/Gotham-Medium.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-Thin';
+  src: url('../fonts/Gotham/Gotham-Thin.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-Book';
+  src: url('../fonts/Gotham/Gotham-Book.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-BookIta';
+  src: url('../fonts/Gotham/Gotham-BookIta.otf');
+}
+
+@font-face {
+  font-family: 'GothamRnd-Bold';
+  src: url('../fonts/Gotham-rounded/GothamRnd-Bold.otf');
+}
+
+@font-face {
+  font-family: 'GothamRnd-Light';
+  src: url('../fonts/Gotham-rounded/GothamRnd-Light.otf');
+}
+
 .navbar {
   padding: 10px;
+  margin-bottom: 0;
   img {
     float: left;
+    margin-top: 15px;
   }
   p {
-    font: bold 16px sans-serif;
+    font: bold 16px 'Gotham-Black';
     color: #012777;
-    margin-top: 25px;
+    margin-top: 37px;
     text-transform: uppercase;
     padding-left: 15px;
     display: inline-block;
   }
   .content-right {
+    font: bold 16px 'Gotham-Light';
     float: right;
-    li:before {
-      content: '\2714';
-      display: inline-block;
-      color: #3e9d03;
-      padding: 0 6px 0 0;
-    }
+    .fa-check { color: #3e9d03; }
+    ul li { margin-bottom: 5px; }
   }
   ul, ol { list-style-type: none; }
 }
 
 .body {
   background: #032c6b;
-  height: 500px;
+  height: 100%;
+  padding-bottom: 10px;
   .col-sm-12 { padding-bottom: 30px; }
+  .col-sm-6 { position: relative;; }
   h1, h2, h3, h4 { color: #fff; }
-  h2 { margin-top: 0; }
+  h1 {   font: bold 46px 'Gotham-Light'; }
+  h2 { margin-top: 0; font: 30px 'Gotham-Medium'; }
+  h3 {
+    margin: 0;
+    padding: 0 20px;
+    font: 25px 'Gotham-Book';
+  }
+  h4 { font: 18px 'Gotham-Medium'; }
   // .radial-bg {
   //   height: 150px;
   //   width: 200px;
   //   background-image: radial-gradient(red, green, blue);
   // }
-  .input-item {
-    border-radius: 10px;
-    width: 100%;
-    height: 50px;
-    padding-left: 50px;
-    color: #4e555c;
+
+  .inputBg {
+    position: absolute;
+    background: #d89f38;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+
+    &.input-first {
+      top: 60px;
+      left: 30px;
+    }
+    &.input-second {
+      top: 185px;
+      left: 30px;
+    }
   }
+
+  .input-item {
+    border-radius: 30px;
+    width: 100%;
+    height: 65px;
+    padding-left: 70px;
+    color: #4e555c;
+    font: 15px 'Gotham-Medium';
+    &:focus {
+      outline: none;
+    }
+    &:nth-child(2) { margin-bottom: 20px; }
+    &:nth-child(5) { cursor: pointer; }
+  }
+  p.category {
+    font: 18px 'Gotham-Book';
+    color: #fff;
+    margin-top: 30px;
+    text-align: center;
+    a { color: #fff; text-decoration: underline; }
+  }
+
+  .client-con {
+    padding: 0 50px;
+    &__photo {
+      margin-top: 20px;
+      width: 115px;
+      float: left;
+      display: block;
+    }
+    &__desc {
+      margin-top: 20px;
+      width: calc(100% - 115px);
+      display: block;
+      float:left;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    p {
+      font: 15px 'Gotham-Medium';
+      color: #fff; text-align: center;
+    }
+    p.name {
+      margin-top: 10px;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    p.description {
+      margin: 15px 0;
+      font: 14px 'Gotham-BookIta';
+      text-align: left;
+    }
+    p.review {
+      cursor: pointer;
+      text-align: right;
+      color: #fbd243;
+      font: bold 14px 'Gotham-Book';
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    i.readmore {
+      background: url('../images/readmore.png');
+      width: 13px;
+      height: 10px;
+      display: inline-block;
+      margin-left: 5px;
+    }
+    h4 {
+      float: left;
+      margin: 0;
+      padding-right: 20px;
+    }
+    .fa-star { color: #d89108 }
+  } // clients
+  .list {
+    background: #ffff;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 82%;
+    width: 100%;
+    display: none;
+    z-index: 1;
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 5px;
+      padding-left: 40px;
+      cursor: pointer;
+      font: 15px 'Gotham-Book';
+      &:hover { background: #bdd4e4; font-weight: bold; }
+    }
+  }
+  hr {
+    margin: 0;
+    border-top: 1px solid #797979;
+  }
+} // body
+
+footer {
+  margin: 20px;
+  margin-top: 40px;
+  p {
+    color: #929ba4;
+    font: 13px 'Gotham-Book';
+  }
+  p.logotext {
+    font: bold 12px 'Gotham-Black';
+    color: #012777;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+  ul { margin-bottom: 50px; }
+  ul li {
+    float: left;
+    margin-left: 50px;
+    color: #929ba4;
+    font: bold 14px 'Gotham-Book';
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .agreement { text-align: center; }
+  .accredited img {
+    display: block;
+    margin: 0 auto;
+    &:first-child { padding-bottom: 20px; }
+  }
+  hr { margin-bottom: 80px; }
+}
+
+.modal-title { display: inline-block; }
+.btn-primary { margin: 0 auto; display: block; border-radius: 50px; }
+#findcategoryModal {
+   .modal-title { display: block; }
+   p {
+     color: #2222b5;
+     cursor: pointer;
+     &:hover { text-decoration: underline; }
+   }
+}
+
+#clientModal {
+  hr { border-top: 1px solid #909090; }
+  .modal-body img { float: left; margin-right: 20px; }
+  .modal-body p { margin: 0; }
+  .modal-body p.name { font: bold 20px 'Gotham-Medium'; }
+  .modal-body p.place { font:  13px 'Gotham-Medium'; color: #ababab; }
+  .modal-body p.occupation { font:  15px 'Gotham-Medium'; }
+  .modal-body h3 { display: inline-block; }
+  i.fas.fa-star.true { color: #d89108; }
+  .overall, .comments { padding: 10px; }
+  .comments .star-con { display: inline-block; float: left; margin-right: 10px; }
+  .closebtn { float: right; font:  13px 'Gotham-Medium'; color: #2222b5; cursor: pointer; }
 }
